@@ -12,7 +12,7 @@ pipeline {
   agent {
         docker {
             image 'google/cloud-sdk:latest'
-            label 'my-custom-label'
+            any true
         }
     }
   
