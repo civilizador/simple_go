@@ -9,6 +9,12 @@ pipeline {
     IMAGE_TAG = "gcr.io/${PROJECT}/${APP_NAME}:${env.BRANCH_NAME}.${env.BUILD_NUMBER}"
     JENKINS_CRED = "${PROJECT}"
   }
+  agent {
+        docker {
+            image 'google/cloud-sdk:latest'
+            label 'my-custom-label'
+        }
+    }
   
   stages {
     stage('Test') {
